@@ -15,8 +15,15 @@ Using Cloud Formation: deploy an application (Apache Web Server) and pick up cod
 aws configure
 
 # set up network infrastructure
-./scripts/awsCoUp.sh network cf/network.yml cf/network-parameters.json
+cd scripts; ./awsCoUp.sh network ../cf/network.yml ../cf/network-parameters.json; cd ..
 
 # wait for the network stack to complete before running, set up servers
-./scripts/awsCoUp.sh servers cf/servers.yml cf/servers-parameters.json
+cd scripts; ./awsCoUp.sh servers ../cf/servers.yml ../cf/servers-parameters.json; cd ..
+
+
+scp -i ~/dev/awsKeys/jumpbox-key.pem ~/dev/awsKeys/private-server-devops-key.pem ubuntu@18.236.100.51:/home/ubuntu/private-server-devops-key.pem
+
+ssh ubuntu@18.236.100.51 -i ~/dev/awsKeys/jumpbox-key.pem
+
+ssh ubuntu@10.0.2.235 -i ./private-server-devops-key.pem
 ```
