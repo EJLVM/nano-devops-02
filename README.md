@@ -21,10 +21,14 @@ cd scripts; ./awsCoUp.sh network ../cf/network.yml ../cf/network-parameters.json
 cd scripts; ./awsCoUp.sh servers ../cf/servers.yml ../cf/servers-parameters.json; cd ..
 
 # copy ssh key to bastion server
-scp -i ~/dev/awsKeys/jumpbox-key.pem ~/dev/awsKeys/private-server-devops-key.pem ubuntu@18.236.100.51:/home/ubuntu/private-server-devops-key.pem
+scp -i ~/dev/awsKeys/jumpbox-key.pem ~/dev/awsKeys/private-server-devops-key.pem ubuntu@34.221.141.90:/home/ubuntu/private-server-devops-key.pem
 
 # ssh to jump server
-ssh ubuntu@18.236.100.51 -i ~/dev/awsKeys/jumpbox-key.pem
+ssh ubuntu@34.221.141.90 -i ~/dev/awsKeys/jumpbox-key.pem
 
-ssh ubuntu@10.0.3.225 -i ./private-server-devops-key.pem
+ssh ubuntu@10.0.3.91 -i ./private-server-devops-key.pem
 ```
+
+## Application URL
+
+Application currently available [here](http://serve-webap-y8yhy31p7x5c-1543660959.us-west-2.elb.amazonaws.com/).
